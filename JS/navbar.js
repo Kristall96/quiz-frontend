@@ -1,17 +1,21 @@
-const API_BASE_URL = "https://quiz-backend-rdcd.onrender.com";
-
 document.addEventListener("DOMContentLoaded", async () => {
   const authLinks = document.getElementById("authLinks");
-  if (!authLinks) return console.error("Navbar element not found!");
+  if (!authLinks) {
+    console.error(
+      "❌ Navbar element not found! Make sure #authLinks exists in HTML."
+    );
+    return;
+  }
+
+  const API_BASE_URL = "https://quiz-backend-rdcd.onrender.com";
 
   try {
     const response = await fetch(`${API_BASE_URL}/api/users/profile`, {
-      // ✅ Corrected path
-      credentials: "include",
+      credentials: "include", // ✅ Ensure cookies are included
     });
 
     const user = await response.json();
-    console.log("Profile Response:", user); // ✅ Log profile response
+    console.log("🔍 Profile Response:", user);
 
     if (response.ok && user.username) {
       console.log("✅ User is logged in:", user);
@@ -23,11 +27,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         .getElementById("logoutBtn")
         .addEventListener("click", async () => {
           await fetch(`${API_BASE_URL}/api/users/logout`, {
-            // ✅ Ensure logout route is correct
             method: "POST",
             credentials: "include",
           });
-          window.location.reload(); // ✅ Refresh page after logout
+          window.location.reload();
         });
     } else {
       console.log("❌ User is NOT logged in.");
@@ -37,6 +40,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             `;
     }
   } catch (error) {
-    console.error("Error checking authentication:", error);
+    console.error("🔥 Error checking authentication:", error);
   }
 });
