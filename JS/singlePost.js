@@ -1,5 +1,5 @@
-const API_BASE_URL = "https://quiz-backend-rdcd.onrender.com";
 document.addEventListener("DOMContentLoaded", async () => {
+  const API_BASE_URL = "https://quiz-backend-rdcd.onrender.com";
   // Extract the post ID from the URL query string
   const urlParams = new URLSearchParams(window.location.search);
   const postId = urlParams.get("id");
