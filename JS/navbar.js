@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const API_BASE_URL = "https://quiz-backend-rdcd.onrender.com";
 
   try {
+    console.log("🔍 Fetching Profile...");
     const response = await fetch(`${API_BASE_URL}/api/users/profile`, {
       credentials: "include", // ✅ Ensure cookies are included
     });
@@ -20,9 +21,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (response.ok && user.username) {
       console.log("✅ User is logged in:", user);
       authLinks.innerHTML = `
-                <li><a class="menuText" href="./HTML/profile.html">Profile</a></li>
-                <li><a class="menuText" id="logoutBtn" href="#">Logout</a></li>
-            `;
+                  <li><a class="menuText" href="./HTML/profile.html">Profile</a></li>
+                  <li><a class="menuText" id="logoutBtn" href="#">Logout</a></li>
+              `;
       document
         .getElementById("logoutBtn")
         .addEventListener("click", async () => {
@@ -35,9 +36,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     } else {
       console.log("❌ User is NOT logged in.");
       authLinks.innerHTML = `
-                <li><a class="menuText" href="./HTML/login.html">Log in</a></li>
-                <li><a class="menuText" href="./HTML/register.html">Sign up for free</a></li>
-            `;
+                  <li><a class="menuText" href="./HTML/login.html">Log in</a></li>
+                  <li><a class="menuText" href="./HTML/register.html">Sign up for free</a></li>
+              `;
     }
   } catch (error) {
     console.error("🔥 Error checking authentication:", error);
