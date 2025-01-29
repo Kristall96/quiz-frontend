@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           await fetch(`${API_BASE_URL}/api/blog/${post._id}/views`, {
             method: "PATCH",
           });
-          window.location.href = `${API_BASE_URL}/html/singlePost.html?id=${post._id}`;
+          window.location.href = `/quiz-frontend/HTML/singlePost.html?id=${post._id}`;
         } catch (err) {
           alert(err);
         }
