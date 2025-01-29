@@ -1,8 +1,10 @@
+const API_BASE_URL = "https://quiz-backend-rdcd.onrender.com";
+
 document.addEventListener("DOMContentLoaded", async () => {
-  const API_BASE_URL = "https://quiz-backend-rdcd.onrender.com";
-  // Extract the post ID from the URL query string
   const urlParams = new URLSearchParams(window.location.search);
   const postId = urlParams.get("id");
+
+  console.log("Extracted Post ID:", postId);
 
   if (!postId) {
     alert("Invalid post ID");
@@ -10,20 +12,22 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   try {
-    // Fetch the blog post using the ID
-    const response = await fetch(`${API_BASE_URL}/api/blog/${postId}`, {
-      method: "GET",
-    });
+    const response = await fetch(`${API_BASE_URL}/api/blog/${postId}`);
 
     if (!response.ok) {
-      const error = await response.json();
-      throw new Error(error.error || "Failed to fetch the blog post");
+      let errorMessage = "Failed to fetch the blog post";
+      try {
+        const error = await response.json();
+        errorMessage = error.error || errorMessage;
+      } catch (jsonError) {
+        console.error("Non-JSON error response", jsonError);
+      }
+      throw new Error(errorMessage);
     }
 
     const post = await response.json();
     const postContainer = document.getElementById("postContainer");
 
-    // Dynamically display the post details
     postContainer.innerHTML = `
         <h1>${post.title}</h1>
         <img src="${post.coverImage}" alt="${post.title}">
@@ -31,11 +35,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         <button id="goBack">Back to Posts</button>
       `;
 
-    // Add "Back" button functionality
     document.getElementById("goBack").addEventListener("click", () => {
-      window.location.href = `${API_BASE_URL}/backend/public/HTML/index.html`; // Adjust path to the main blog posts page
+      window.location.href = "/quiz-frontend/index.html";
     });
   } catch (err) {
+    console.error("Fetch Error:", err.message);
     alert(err.message);
   }
 });
