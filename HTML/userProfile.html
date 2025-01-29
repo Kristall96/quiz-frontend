@@ -12,7 +12,7 @@
   <body>
     <nav>
       <div id="logo">
-        <img src="../images/quizify-removebg-preview.png" alt="" />
+        <img src="./images/quizify-removebg-preview.png" alt="" />
       </div>
       <div id="menu">
         <ul>
@@ -70,10 +70,16 @@
             </button>
           </div>
           <button id="search">Search</button>
-          <li><a class="menuText" href="./login.html">Log in</a></li>
-          <li>
-            <a class="menuText" href="./register.html">Sign up for free</a>
-          </li>
+
+          <!-- ✅ Add this `#authLinks` container -->
+          <ul id="authLinks">
+            <li><a class="menuText" href="./HTML/login.html">Log in</a></li>
+            <li>
+              <a class="menuText" href="./HTML/register.html"
+                >Sign up for free</a
+              >
+            </li>
+          </ul>
         </ul>
       </div>
     </nav>
