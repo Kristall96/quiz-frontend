@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Add "Back" button functionality
     document.getElementById("goBack").addEventListener("click", () => {
-      window.location.href = "${API_BASE_URL}/backend/public/HTML/index.html "; // Adjust path to the main blog posts page
+      window.location.href = `${API_BASE_URL}/backend/public/HTML/index.html`; // Adjust path to the main blog posts page
     });
   } catch (err) {
     alert(err.message);
