@@ -18,6 +18,7 @@
   border: 1px solid black;
   list-style-type: none;
   display: flex;
+  cursor: pointer;
   flex-direction: column;
 }
 #rightDiv #rightUl .rightLi img {
