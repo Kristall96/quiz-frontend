@@ -1,6 +1,7 @@
+const API_BASE_URL = "https://quiz-backend-rdcd.onrender.com";
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    const response = await fetch("http://localhost:5000/api/users/rank", {
+    const response = await fetch("${API_BASE_URL}/api/users/rank", {
       method: "GET",
     });
 

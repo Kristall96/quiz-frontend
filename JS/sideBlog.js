@@ -1,3 +1,4 @@
+const API_BASE_URL = "https://quiz-backend-rdcd.onrender.com";
 document.addEventListener("DOMContentLoaded", async () => {
   try {
     const response = await fetch("http://localhost:5000/api/blog", {
@@ -23,10 +24,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         `;
       div.addEventListener("click", async () => {
         try {
-          await fetch(`http://localhost:5000/api/blog/${post._id}/views`, {
+          await fetch(`${API_BASE_URL}/api/blog/${post._id}/views`, {
             method: "PATCH",
           });
-          window.location.href = `http://localhost:5000/html/singlePost.html?id=${post._id}`;
+          window.location.href = `${API_BASE_URL}/html/singlePost.html?id=${post._id}`;
         } catch (err) {
           alert(err);
         }

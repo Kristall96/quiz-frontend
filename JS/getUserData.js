@@ -1,3 +1,4 @@
+const API_BASE_URL = "https://quiz-backend-rdcd.onrender.com";
 document.addEventListener("DOMContentLoaded", async () => {
   try {
     const response = await fetch("http://localhost:5000/users", {
@@ -46,7 +47,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         try {
           // Send DELETE request to the backend
           const response = await fetch(
-            `http://localhost:5000/api/updates/user/${userId}`,
+            `${API_BASE_URL}/api/updates/user/${userId}`,
             {
               method: "DELETE",
             }
@@ -78,7 +79,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         try {
           // Toggle isAdmin status in the backend
           const response = await fetch(
-            `http://localhost:5000/api/update/users/${userId}`,
+            `${API_BASE_URL}/api/update/users/${userId}`,
             {
               method: "PATCH",
               headers: {

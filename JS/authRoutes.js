@@ -1,6 +1,6 @@
 const form = document.getElementById("registerForm");
 const messageDiv = document.getElementById("message");
-
+const API_BASE_URL = "https://quiz-backend-rdcd.onrender.com";
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -14,7 +14,7 @@ form.addEventListener("submit", async (e) => {
   messageDiv.textContent = "";
 
   try {
-    const response = await fetch("http://localhost:5000/api/register1", {
+    const response = await fetch("${API_BASE_URL}/api/register1", {
       method: "POST",
       headers: {
         "Content-Type": `application/json`,

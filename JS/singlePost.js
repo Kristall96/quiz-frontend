@@ -1,3 +1,4 @@
+const API_BASE_URL = "https://quiz-backend-rdcd.onrender.com";
 document.addEventListener("DOMContentLoaded", async () => {
   // Extract the post ID from the URL query string
   const urlParams = new URLSearchParams(window.location.search);
@@ -10,7 +11,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   try {
     // Fetch the blog post using the ID
-    const response = await fetch(`http://localhost:5000/api/blog/${postId}`, {
+    const response = await fetch(`${API_BASE_URL}/api/blog/${postId}`, {
       method: "GET",
     });
 
@@ -32,8 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Add "Back" button functionality
     document.getElementById("goBack").addEventListener("click", () => {
-      window.location.href =
-        "http://127.0.0.1:5500/backend/public/HTML/index.html "; // Adjust path to the main blog posts page
+      window.location.href = "${API_BASE_URL}/backend/public/HTML/index.html "; // Adjust path to the main blog posts page
     });
   } catch (err) {
     alert(err.message);
