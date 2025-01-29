@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../CSS/aside.css" />
     <link rel="stylesheet" href="../CSS/footer.css" />
     <link rel="stylesheet" href="../CSS/style.css" />
-    <title>Sign In</title>
+    <title>Profile</title>
   </head>
   <body>
     <nav>
@@ -78,13 +78,10 @@
       </div>
     </nav>
     <div class="container">
-      <h2>Login</h2>
-      <form id="loginForm">
-        <input type="email" id="email" placeholder="Email" required />
-        <input type="password" id="password" placeholder="Password" required />
-        <button type="submit">Login</button>
-        <p id="loginMessage" class="error-message"></p>
-      </form>
+      <h2>Welcome, <span id="username"></span>!</h2>
+      <p>Email: <span id="email"></span></p>
+      <p>Role: <span id="role"></span></p>
+      <button id="logoutBtn">Logout</button>
     </div>
     <footer>
       <div id="registerFooter">
@@ -95,6 +92,8 @@
         <p>&copy <span id="year"></span>Copyright: Quizify</p>
       </div>
     </footer>
+    <script src="js/profile.js"></script>
+    <script src="js/logout.js"></script>
     <script type="module" src="../JS/theme.js"></script>
     <script type="module" src="../JS/footer.js"></script>
   </body>

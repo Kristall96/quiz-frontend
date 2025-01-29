@@ -12,7 +12,7 @@
   margin: 0px;
 }
 #rightUl:hover {
-  transform: scale(1.1); /* Slightly enlarge */
+  transform: scale(1.03); /* Slightly enlarge */
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow */
   background-color: deepskyblue;
 }
