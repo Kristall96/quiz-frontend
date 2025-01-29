@@ -11,7 +11,11 @@
   padding: 0px;
   margin: 0px;
 }
-
+#rightUl:hover {
+  transform: scale(1.1); /* Slightly enlarge */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow */
+  background-color: deepskyblue;
+}
 #rightDiv #rightUl {
   padding: 0px;
   margin: 0px;
@@ -20,6 +24,7 @@
   display: flex;
   cursor: pointer;
   flex-direction: column;
+  transition: 0.2s ease-in-out;
 }
 #rightDiv #rightUl .rightLi img {
   width: 11.9vw;
