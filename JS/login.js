@@ -14,13 +14,13 @@ loginForm.addEventListener("submit", async (e) => {
   messageDiv.textContent = "";
 
   try {
-    const response = await fetch(`${API_BASE_URL}/api/login`, {
+    const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(user),
-      credentials: "include", // Important for HTTP-only cookie authentication
+      credentials: "include", // sends cookies along with the request
     });
 
     const data = await response.json();
